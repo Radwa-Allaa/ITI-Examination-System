@@ -1,0 +1,3054 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/20/2024 2:41:02 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-ALV673H"
+  DTS:CreatorName="DESKTOP-ALV673H\Yasmen"
+  DTS:DTSID="{C86CB6AC-297F-4BE4-AE50-ED55401CA28A}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5556.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="94"
+  DTS:VersionGUID="{1FA54B34-67B2-4240-A205-D99780BC1E15}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-ALV673H.ExaminationSystem 2]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{6C40E3DF-44A3-429F-B76A-3F1CDF7C6EA9}"
+      DTS:ObjectName="DESKTOP-ALV673H.ExaminationSystem 2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-ALV673H;Initial Catalog=ExaminationSystem;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-ALV673H.ExaminationSystem 3]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{6DE7BF34-3A48-4A71-9041-31AD282ABA77}"
+      DTS:ObjectName="DESKTOP-ALV673H.ExaminationSystem 3">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-ALV673H;Initial Catalog=ExaminationSystem;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{6DE7BF34-3A48-4A71-9041-31AD282ABA77}DESKTOP-ALV673H.ExaminationSystem 3;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-ALV673H.ExaminationSystem 4]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{CA87F75C-C3CB-4CD9-9288-4A02B7928B96}"
+      DTS:ObjectName="DESKTOP-ALV673H.ExaminationSystem 4">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-ALV673H;Initial Catalog=ExaminationSystem;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{CA87F75C-C3CB-4CD9-9288-4A02B7928B96}DESKTOP-ALV673H.ExaminationSystem 4;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-ALV673H.Student_Grades_DataMart]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{694F66C9-8668-4FD9-9A83-B06C31989B52}"
+      DTS:ObjectName="DESKTOP-ALV673H.Student_Grades_DataMart">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-ALV673H;Initial Catalog=Student_Grades_DataMart;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{694F66C9-8668-4FD9-9A83-B06C31989B52}DESKTOP-ALV673H.Student_Grades_DataMart;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Dim-Course"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{450C7F11-7330-41C3-80E4-E62B3377B566}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Dim-Course"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Dim-Course\Course_Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Course_Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Course]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT course_ID, cr_name, Num_hours, evaluation
+FROM Course
+order by course_ID</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dim-Course\Course_Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-ALV673H.ExaminationSystem 4]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-ALV673H.ExaminationSystem 4]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Dim-Course\Course_Source.Outputs[OLE DB Source Output]"
+                  isSorted="true"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim-Course\Course_Source.Outputs[OLE DB Source Output].Columns[course_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim-Course\Course_Source.Outputs[OLE DB Source Output].ExternalColumns[course_ID]"
+                      lineageId="Package\Dim-Course\Course_Source.Outputs[OLE DB Source Output].Columns[course_ID]"
+                      name="course_ID"
+                      sortKeyPosition="1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dim-Course\Course_Source.Outputs[OLE DB Source Output].Columns[cr_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim-Course\Course_Source.Outputs[OLE DB Source Output].ExternalColumns[cr_name]"
+                      length="100"
+                      lineageId="Package\Dim-Course\Course_Source.Outputs[OLE DB Source Output].Columns[cr_name]"
+                      name="cr_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dim-Course\Course_Source.Outputs[OLE DB Source Output].Columns[Num_hours]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim-Course\Course_Source.Outputs[OLE DB Source Output].ExternalColumns[Num_hours]"
+                      lineageId="Package\Dim-Course\Course_Source.Outputs[OLE DB Source Output].Columns[Num_hours]"
+                      name="Num_hours"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dim-Course\Course_Source.Outputs[OLE DB Source Output].Columns[evaluation]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim-Course\Course_Source.Outputs[OLE DB Source Output].ExternalColumns[evaluation]"
+                      length="100"
+                      lineageId="Package\Dim-Course\Course_Source.Outputs[OLE DB Source Output].Columns[evaluation]"
+                      name="evaluation"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dim-Course\Course_Source.Outputs[OLE DB Source Output].ExternalColumns[course_ID]"
+                      dataType="i4"
+                      name="course_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Dim-Course\Course_Source.Outputs[OLE DB Source Output].ExternalColumns[cr_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="cr_name" />
+                    <externalMetadataColumn
+                      refId="Package\Dim-Course\Course_Source.Outputs[OLE DB Source Output].ExternalColumns[Num_hours]"
+                      dataType="i4"
+                      name="Num_hours" />
+                    <externalMetadataColumn
+                      refId="Package\Dim-Course\Course_Source.Outputs[OLE DB Source Output].ExternalColumns[evaluation]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="evaluation" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Dim-Course\Course_Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim-Course\Course_Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim-Course\Course_Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim-Course\Course_Source.Outputs[OLE DB Source Error Output].Columns[cr_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Dim-Course\Course_Source.Outputs[OLE DB Source Error Output].Columns[cr_name]"
+                      name="cr_name" />
+                    <outputColumn
+                      refId="Package\Dim-Course\Course_Source.Outputs[OLE DB Source Error Output].Columns[Num_hours]"
+                      dataType="i4"
+                      lineageId="Package\Dim-Course\Course_Source.Outputs[OLE DB Source Error Output].Columns[Num_hours]"
+                      name="Num_hours" />
+                    <outputColumn
+                      refId="Package\Dim-Course\Course_Source.Outputs[OLE DB Source Error Output].Columns[evaluation]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Dim-Course\Course_Source.Outputs[OLE DB Source Error Output].Columns[evaluation]"
+                      name="evaluation" />
+                    <outputColumn
+                      refId="Package\Dim-Course\Course_Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim-Course\Course_Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Dim-Course\Course_Source.Outputs[OLE DB Source Error Output].Columns[course_ID]"
+                      dataType="i4"
+                      lineageId="Package\Dim-Course\Course_Source.Outputs[OLE DB Source Error Output].Columns[course_ID]"
+                      name="course_ID" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim-Course\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Dim-Course\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim-Course\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Dim-Course\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim-Course\Derived Column.Outputs[Derived Column Output].Columns[End_Date]"
+                      dataType="dbTimeStamp"
+                      description="End_Date"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Dim-Course\Derived Column.Outputs[Derived Column Output].Columns[End_Date]"
+                      name="End_Date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_DBTIMESTAMP)(@[System::StartTime])</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_DBTIMESTAMP)(@[System::StartTime])</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim-Course\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Dim-Course\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim-Course\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim-Course\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim-Course\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim-Course\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim-Course\Derived Column 1"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Dim-Course\Derived Column 1.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim-Course\Derived Column 1.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Dim-Course\Derived Column 1.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim-Course\Derived Column 1.Outputs[Derived Column Output].Columns[Start_Date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Dim-Course\Derived Column 1.Outputs[Derived Column Output].Columns[Start_Date]"
+                      name="Start_Date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_DBTIMESTAMP)(@[System::StartTime])</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_DBTIMESTAMP)(@[System::StartTime])</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Dim-Course\Derived Column 1.Outputs[Derived Column Output].Columns[is_current]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Dim-Course\Derived Column 1.Outputs[Derived Column Output].Columns[is_current]"
+                      name="is_current"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">1</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">1</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim-Course\Derived Column 1.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Dim-Course\Derived Column 1.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim-Course\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim-Course\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim-Course\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim-Course\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim-Course\Insert Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Insert Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Dim_Course]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dim-Course\Insert Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-ALV673H.Student_Grades_DataMart]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-ALV673H.Student_Grades_DataMart]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Dim-Course\Insert Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim-Course\Insert Destination.Inputs[OLE DB Destination Input].Columns[course_ID]"
+                      cachedDataType="i4"
+                      cachedName="course_ID"
+                      externalMetadataColumnId="Package\Dim-Course\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Course_ID]"
+                      lineageId="Package\Dim-Course\Union All.Outputs[Union All Output 1].Columns[course_ID]" />
+                    <inputColumn
+                      refId="Package\Dim-Course\Insert Destination.Inputs[OLE DB Destination Input].Columns[cr_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="cr_name"
+                      externalMetadataColumnId="Package\Dim-Course\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[c_name]"
+                      lineageId="Package\Dim-Course\Union All.Outputs[Union All Output 1].Columns[cr_name]" />
+                    <inputColumn
+                      refId="Package\Dim-Course\Insert Destination.Inputs[OLE DB Destination Input].Columns[Num_hours]"
+                      cachedDataType="i4"
+                      cachedName="Num_hours"
+                      externalMetadataColumnId="Package\Dim-Course\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Num_hours]"
+                      lineageId="Package\Dim-Course\Union All.Outputs[Union All Output 1].Columns[Num_hours]" />
+                    <inputColumn
+                      refId="Package\Dim-Course\Insert Destination.Inputs[OLE DB Destination Input].Columns[evaluation]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="evaluation"
+                      externalMetadataColumnId="Package\Dim-Course\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Evaluation]"
+                      lineageId="Package\Dim-Course\Union All.Outputs[Union All Output 1].Columns[evaluation]" />
+                    <inputColumn
+                      refId="Package\Dim-Course\Insert Destination.Inputs[OLE DB Destination Input].Columns[Start_Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Start_Date"
+                      externalMetadataColumnId="Package\Dim-Course\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Start_Date]"
+                      lineageId="Package\Dim-Course\Derived Column 1.Outputs[Derived Column Output].Columns[Start_Date]" />
+                    <inputColumn
+                      refId="Package\Dim-Course\Insert Destination.Inputs[OLE DB Destination Input].Columns[Source_System_Code]"
+                      cachedDataType="i4"
+                      cachedName="Source_System_Code"
+                      externalMetadataColumnId="Package\Dim-Course\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Source_System_code]"
+                      lineageId="Package\Dim-Course\Union All.Outputs[Union All Output 1].Columns[Source_System_Code]" />
+                    <inputColumn
+                      refId="Package\Dim-Course\Insert Destination.Inputs[OLE DB Destination Input].Columns[Ins_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Ins_name"
+                      externalMetadataColumnId="Package\Dim-Course\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Ins_name]"
+                      lineageId="Package\Dim-Course\Union All.Outputs[Union All Output 1].Columns[Ins_name]" />
+                    <inputColumn
+                      refId="Package\Dim-Course\Insert Destination.Inputs[OLE DB Destination Input].Columns[Topic_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Topic_name"
+                      externalMetadataColumnId="Package\Dim-Course\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Topic_name]"
+                      lineageId="Package\Dim-Course\Union All.Outputs[Union All Output 1].Columns[Topic_name]" />
+                    <inputColumn
+                      refId="Package\Dim-Course\Insert Destination.Inputs[OLE DB Destination Input].Columns[is_current]"
+                      cachedDataType="i4"
+                      cachedName="is_current"
+                      externalMetadataColumnId="Package\Dim-Course\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Is_Current]"
+                      lineageId="Package\Dim-Course\Derived Column 1.Outputs[Derived Column Output].Columns[is_current]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dim-Course\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Course_Key]"
+                      dataType="i4"
+                      name="Course_Key" />
+                    <externalMetadataColumn
+                      refId="Package\Dim-Course\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Course_ID]"
+                      dataType="i4"
+                      name="Course_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Dim-Course\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[c_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="c_name" />
+                    <externalMetadataColumn
+                      refId="Package\Dim-Course\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Num_hours]"
+                      dataType="i4"
+                      name="Num_hours" />
+                    <externalMetadataColumn
+                      refId="Package\Dim-Course\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Evaluation]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Evaluation" />
+                    <externalMetadataColumn
+                      refId="Package\Dim-Course\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Start_Date]"
+                      dataType="dbTimeStamp"
+                      name="Start_Date" />
+                    <externalMetadataColumn
+                      refId="Package\Dim-Course\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[End_Date]"
+                      dataType="dbTimeStamp"
+                      name="End_Date" />
+                    <externalMetadataColumn
+                      refId="Package\Dim-Course\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Is_Current]"
+                      dataType="bool"
+                      name="Is_Current" />
+                    <externalMetadataColumn
+                      refId="Package\Dim-Course\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Source_System_code]"
+                      dataType="i4"
+                      name="Source_System_code" />
+                    <externalMetadataColumn
+                      refId="Package\Dim-Course\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Ins_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Ins_name" />
+                    <externalMetadataColumn
+                      refId="Package\Dim-Course\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Topic_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Topic_name" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim-Course\Insert Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Dim-Course\Insert Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim-Course\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim-Course\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim-Course\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim-Course\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim-Course\Instructor_Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Instructor_Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select course_ID, Ins_name from Instructor i left join course_instructor ci
+on i.ins_ID = ci.ins_ID
+order by course_ID</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dim-Course\Instructor_Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-ALV673H.ExaminationSystem 2]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-ALV673H.ExaminationSystem 2]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Dim-Course\Instructor_Source.Outputs[OLE DB Source Output]"
+                  isSorted="true"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim-Course\Instructor_Source.Outputs[OLE DB Source Output].Columns[Ins_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim-Course\Instructor_Source.Outputs[OLE DB Source Output].ExternalColumns[Ins_name]"
+                      length="100"
+                      lineageId="Package\Dim-Course\Instructor_Source.Outputs[OLE DB Source Output].Columns[Ins_name]"
+                      name="Ins_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dim-Course\Instructor_Source.Outputs[OLE DB Source Output].Columns[course_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim-Course\Instructor_Source.Outputs[OLE DB Source Output].ExternalColumns[course_ID]"
+                      lineageId="Package\Dim-Course\Instructor_Source.Outputs[OLE DB Source Output].Columns[course_ID]"
+                      name="course_ID"
+                      sortKeyPosition="1"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dim-Course\Instructor_Source.Outputs[OLE DB Source Output].ExternalColumns[Ins_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Ins_name" />
+                    <externalMetadataColumn
+                      refId="Package\Dim-Course\Instructor_Source.Outputs[OLE DB Source Output].ExternalColumns[course_ID]"
+                      dataType="i4"
+                      name="course_ID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Dim-Course\Instructor_Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim-Course\Instructor_Source.Outputs[OLE DB Source Error Output].Columns[course_ID]"
+                      dataType="i4"
+                      lineageId="Package\Dim-Course\Instructor_Source.Outputs[OLE DB Source Error Output].Columns[course_ID]"
+                      name="course_ID" />
+                    <outputColumn
+                      refId="Package\Dim-Course\Instructor_Source.Outputs[OLE DB Source Error Output].Columns[Ins_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Dim-Course\Instructor_Source.Outputs[OLE DB Source Error Output].Columns[Ins_name]"
+                      name="Ins_name" />
+                    <outputColumn
+                      refId="Package\Dim-Course\Instructor_Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim-Course\Instructor_Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim-Course\Instructor_Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim-Course\Instructor_Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim-Course\Merge Join"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+              name="Merge Join"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of join to perform."
+                  name="JoinType"
+                  typeConverter="JoinType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of columns in the ordering key."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the null values are treated as equal values."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates the requested maximum buffers per input before blocking."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Dim-Course\Merge Join.Inputs[Merge Join Left Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Left Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim-Course\Merge Join.Inputs[Merge Join Left Input].Columns[course_ID]"
+                      cachedDataType="i4"
+                      cachedName="course_ID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Dim-Course\Course_Source.Outputs[OLE DB Source Output].Columns[course_ID]" />
+                    <inputColumn
+                      refId="Package\Dim-Course\Merge Join.Inputs[Merge Join Left Input].Columns[cr_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="cr_name"
+                      lineageId="Package\Dim-Course\Course_Source.Outputs[OLE DB Source Output].Columns[cr_name]" />
+                    <inputColumn
+                      refId="Package\Dim-Course\Merge Join.Inputs[Merge Join Left Input].Columns[Num_hours]"
+                      cachedDataType="i4"
+                      cachedName="Num_hours"
+                      lineageId="Package\Dim-Course\Course_Source.Outputs[OLE DB Source Output].Columns[Num_hours]" />
+                    <inputColumn
+                      refId="Package\Dim-Course\Merge Join.Inputs[Merge Join Left Input].Columns[evaluation]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="evaluation"
+                      lineageId="Package\Dim-Course\Course_Source.Outputs[OLE DB Source Output].Columns[evaluation]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Dim-Course\Merge Join.Inputs[Merge Join Right Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Right Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim-Course\Merge Join.Inputs[Merge Join Right Input].Columns[Course_ID]"
+                      cachedDataType="i4"
+                      cachedName="Course_ID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Dim-Course\Topic_Source.Outputs[OLE DB Source Output].Columns[Course_ID]" />
+                    <inputColumn
+                      refId="Package\Dim-Course\Merge Join.Inputs[Merge Join Right Input].Columns[Topic_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Topic_name"
+                      lineageId="Package\Dim-Course\Topic_Source.Outputs[OLE DB Source Output].Columns[Topic_name]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim-Course\Merge Join.Outputs[Merge Join Output]"
+                  isSorted="true"
+                  name="Merge Join Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim-Course\Merge Join.Outputs[Merge Join Output].Columns[cr_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Dim-Course\Merge Join.Outputs[Merge Join Output].Columns[cr_name]"
+                      name="cr_name">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Dim-Course\Merge Join.Inputs[Merge Join Left Input].Columns[cr_name]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Dim-Course\Merge Join.Outputs[Merge Join Output].Columns[Num_hours]"
+                      dataType="i4"
+                      lineageId="Package\Dim-Course\Merge Join.Outputs[Merge Join Output].Columns[Num_hours]"
+                      name="Num_hours">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Dim-Course\Merge Join.Inputs[Merge Join Left Input].Columns[Num_hours]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Dim-Course\Merge Join.Outputs[Merge Join Output].Columns[evaluation]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Dim-Course\Merge Join.Outputs[Merge Join Output].Columns[evaluation]"
+                      name="evaluation">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Dim-Course\Merge Join.Inputs[Merge Join Left Input].Columns[evaluation]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Dim-Course\Merge Join.Outputs[Merge Join Output].Columns[Topic_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Dim-Course\Merge Join.Outputs[Merge Join Output].Columns[Topic_name]"
+                      name="Topic_name">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Dim-Course\Merge Join.Inputs[Merge Join Right Input].Columns[Topic_name]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Dim-Course\Merge Join.Outputs[Merge Join Output].Columns[course_ID]"
+                      dataType="i4"
+                      lineageId="Package\Dim-Course\Merge Join.Outputs[Merge Join Output].Columns[course_ID]"
+                      name="course_ID"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Dim-Course\Merge Join.Inputs[Merge Join Left Input].Columns[course_ID]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim-Course\Merge Join 1"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+              name="Merge Join 1"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of join to perform."
+                  name="JoinType"
+                  typeConverter="JoinType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of columns in the ordering key."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the null values are treated as equal values."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates the requested maximum buffers per input before blocking."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Dim-Course\Merge Join 1.Inputs[Merge Join Left Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Left Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim-Course\Merge Join 1.Inputs[Merge Join Left Input].Columns[course_ID]"
+                      cachedDataType="i4"
+                      cachedName="course_ID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Dim-Course\Merge Join.Outputs[Merge Join Output].Columns[course_ID]" />
+                    <inputColumn
+                      refId="Package\Dim-Course\Merge Join 1.Inputs[Merge Join Left Input].Columns[cr_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="cr_name"
+                      lineageId="Package\Dim-Course\Merge Join.Outputs[Merge Join Output].Columns[cr_name]" />
+                    <inputColumn
+                      refId="Package\Dim-Course\Merge Join 1.Inputs[Merge Join Left Input].Columns[Num_hours]"
+                      cachedDataType="i4"
+                      cachedName="Num_hours"
+                      lineageId="Package\Dim-Course\Merge Join.Outputs[Merge Join Output].Columns[Num_hours]" />
+                    <inputColumn
+                      refId="Package\Dim-Course\Merge Join 1.Inputs[Merge Join Left Input].Columns[evaluation]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="evaluation"
+                      lineageId="Package\Dim-Course\Merge Join.Outputs[Merge Join Output].Columns[evaluation]" />
+                    <inputColumn
+                      refId="Package\Dim-Course\Merge Join 1.Inputs[Merge Join Left Input].Columns[Topic_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Topic_name"
+                      lineageId="Package\Dim-Course\Merge Join.Outputs[Merge Join Output].Columns[Topic_name]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Dim-Course\Merge Join 1.Inputs[Merge Join Right Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Right Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim-Course\Merge Join 1.Inputs[Merge Join Right Input].Columns[course_ID]"
+                      cachedDataType="i4"
+                      cachedName="course_ID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Dim-Course\Instructor_Source.Outputs[OLE DB Source Output].Columns[course_ID]" />
+                    <inputColumn
+                      refId="Package\Dim-Course\Merge Join 1.Inputs[Merge Join Right Input].Columns[Ins_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Ins_name"
+                      lineageId="Package\Dim-Course\Instructor_Source.Outputs[OLE DB Source Output].Columns[Ins_name]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim-Course\Merge Join 1.Outputs[Merge Join Output]"
+                  isSorted="true"
+                  name="Merge Join Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim-Course\Merge Join 1.Outputs[Merge Join Output].Columns[cr_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Dim-Course\Merge Join 1.Outputs[Merge Join Output].Columns[cr_name]"
+                      name="cr_name">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Dim-Course\Merge Join 1.Inputs[Merge Join Left Input].Columns[cr_name]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Dim-Course\Merge Join 1.Outputs[Merge Join Output].Columns[Num_hours]"
+                      dataType="i4"
+                      lineageId="Package\Dim-Course\Merge Join 1.Outputs[Merge Join Output].Columns[Num_hours]"
+                      name="Num_hours">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Dim-Course\Merge Join 1.Inputs[Merge Join Left Input].Columns[Num_hours]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Dim-Course\Merge Join 1.Outputs[Merge Join Output].Columns[evaluation]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Dim-Course\Merge Join 1.Outputs[Merge Join Output].Columns[evaluation]"
+                      name="evaluation">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Dim-Course\Merge Join 1.Inputs[Merge Join Left Input].Columns[evaluation]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Dim-Course\Merge Join 1.Outputs[Merge Join Output].Columns[Topic_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Dim-Course\Merge Join 1.Outputs[Merge Join Output].Columns[Topic_name]"
+                      name="Topic_name">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Dim-Course\Merge Join 1.Inputs[Merge Join Left Input].Columns[Topic_name]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Dim-Course\Merge Join 1.Outputs[Merge Join Output].Columns[Ins_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Dim-Course\Merge Join 1.Outputs[Merge Join Output].Columns[Ins_name]"
+                      name="Ins_name">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Dim-Course\Merge Join 1.Inputs[Merge Join Right Input].Columns[Ins_name]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Dim-Course\Merge Join 1.Outputs[Merge Join Output].Columns[course_ID]"
+                      dataType="i4"
+                      lineageId="Package\Dim-Course\Merge Join 1.Outputs[Merge Join Output].Columns[course_ID]"
+                      name="course_ID"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Dim-Course\Merge Join 1.Inputs[Merge Join Left Input].Columns[course_ID]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim-Course\OLE DB Command"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[Dim_Course] SET [End_Date] = ?, is_current = 0 WHERE [Course_ID] = ? AND [End_Date] IS NULL</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dim-Course\OLE DB Command.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-ALV673H.Student_Grades_DataMart]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-ALV673H.Student_Grades_DataMart]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Dim-Course\OLE DB Command.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim-Course\OLE DB Command.Inputs[OLE DB Command Input].Columns[course_ID]"
+                      cachedDataType="i4"
+                      cachedName="course_ID"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Dim-Course\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Dim-Course\Merge Join 1.Outputs[Merge Join Output].Columns[course_ID]" />
+                    <inputColumn
+                      refId="Package\Dim-Course\OLE DB Command.Inputs[OLE DB Command Input].Columns[End_Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="End_Date"
+                      externalMetadataColumnId="Package\Dim-Course\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Dim-Course\Derived Column.Outputs[Derived Column Output].Columns[End_Date]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dim-Course\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="dbTimeStamp"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Dim-Course\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="i4"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">17</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim-Course\OLE DB Command.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Dim-Course\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim-Course\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Dim-Course\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim-Course\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim-Course\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim-Course\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim-Course\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim-Course\OLE DB Command 1"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command 1"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[Dim_Course] SET [c_name] = ?,[Ins_name] = ?,[Num_hours] = ?,[Source_System_code] = ?,[Topic_name] = ? WHERE [Course_ID] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dim-Course\OLE DB Command 1.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-ALV673H.Student_Grades_DataMart]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-ALV673H.Student_Grades_DataMart]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Dim-Course\OLE DB Command 1.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim-Course\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[cr_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="cr_name"
+                      externalMetadataColumnId="Package\Dim-Course\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Dim-Course\Merge Join 1.Outputs[Merge Join Output].Columns[cr_name]" />
+                    <inputColumn
+                      refId="Package\Dim-Course\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[course_ID]"
+                      cachedDataType="i4"
+                      cachedName="course_ID"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Dim-Course\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      lineageId="Package\Dim-Course\Merge Join 1.Outputs[Merge Join Output].Columns[course_ID]" />
+                    <inputColumn
+                      refId="Package\Dim-Course\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[Ins_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Ins_name"
+                      externalMetadataColumnId="Package\Dim-Course\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Dim-Course\Merge Join 1.Outputs[Merge Join Output].Columns[Ins_name]" />
+                    <inputColumn
+                      refId="Package\Dim-Course\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[Num_hours]"
+                      cachedDataType="i4"
+                      cachedName="Num_hours"
+                      externalMetadataColumnId="Package\Dim-Course\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\Dim-Course\Merge Join 1.Outputs[Merge Join Output].Columns[Num_hours]" />
+                    <inputColumn
+                      refId="Package\Dim-Course\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[Source_System_Code]"
+                      cachedDataType="i4"
+                      cachedName="Source_System_Code"
+                      externalMetadataColumnId="Package\Dim-Course\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\Dim-Course\SourceS_Code.Outputs[Derived Column Output].Columns[Source_System_Code]" />
+                    <inputColumn
+                      refId="Package\Dim-Course\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[Topic_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Topic_name"
+                      externalMetadataColumnId="Package\Dim-Course\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      lineageId="Package\Dim-Course\Merge Join 1.Outputs[Merge Join Output].Columns[Topic_name]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dim-Course\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Dim-Course\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Dim-Course\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="i4"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Dim-Course\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      dataType="i4"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">17</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Dim-Course\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Dim-Course\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      dataType="i4"
+                      name="Param_5">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">17</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim-Course\OLE DB Command 1.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Dim-Course\OLE DB Command 1.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim-Course\OLE DB Command 1.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Dim-Course\OLE DB Command 1.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim-Course\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim-Course\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim-Course\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim-Course\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim-Course\Replace_nulls"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Replace_nulls"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Dim-Course\Replace_nulls.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim-Course\Replace_nulls.Inputs[Derived Column Input].Columns[cr_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="cr_name"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Dim-Course\Merge Join 1.Outputs[Merge Join Output].Columns[cr_name]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\Dim-Course\Merge Join 1.Outputs[Merge Join Output].Columns[cr_name]}) ? "unknown" : #{Package\Dim-Course\Merge Join 1.Outputs[Merge Join Output].Columns[cr_name]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(cr_name) ? "unknown" : cr_name</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Dim-Course\Replace_nulls.Inputs[Derived Column Input].Columns[Num_hours]"
+                      cachedDataType="i4"
+                      cachedName="Num_hours"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Dim-Course\Merge Join 1.Outputs[Merge Join Output].Columns[Num_hours]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\Dim-Course\Merge Join 1.Outputs[Merge Join Output].Columns[Num_hours]}) ? 0 : #{Package\Dim-Course\Merge Join 1.Outputs[Merge Join Output].Columns[Num_hours]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(Num_hours) ? 0 : Num_hours</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Dim-Course\Replace_nulls.Inputs[Derived Column Input].Columns[evaluation]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="evaluation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Dim-Course\Merge Join 1.Outputs[Merge Join Output].Columns[evaluation]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\Dim-Course\Merge Join 1.Outputs[Merge Join Output].Columns[evaluation]}) ? "unknown " : #{Package\Dim-Course\Merge Join 1.Outputs[Merge Join Output].Columns[evaluation]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(evaluation) ? "unknown " : evaluation</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Dim-Course\Replace_nulls.Inputs[Derived Column Input].Columns[Ins_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Ins_name"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Dim-Course\Merge Join 1.Outputs[Merge Join Output].Columns[Ins_name]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\Dim-Course\Merge Join 1.Outputs[Merge Join Output].Columns[Ins_name]}) ? "unknown" : #{Package\Dim-Course\Merge Join 1.Outputs[Merge Join Output].Columns[Ins_name]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(Ins_name) ? "unknown" : Ins_name</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Dim-Course\Replace_nulls.Inputs[Derived Column Input].Columns[Topic_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Topic_name"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Dim-Course\Merge Join 1.Outputs[Merge Join Output].Columns[Topic_name]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\Dim-Course\Merge Join 1.Outputs[Merge Join Output].Columns[Topic_name]}) ? "unknown" : #{Package\Dim-Course\Merge Join 1.Outputs[Merge Join Output].Columns[Topic_name]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(Topic_name) ? "unknown" : Topic_name</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim-Course\Replace_nulls.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Dim-Course\Replace_nulls.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim-Course\Replace_nulls.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Dim-Course\Replace_nulls.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim-Course\Replace_nulls.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim-Course\Replace_nulls.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim-Course\Replace_nulls.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim-Course\Replace_nulls.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim-Course\Slowly Changing Dimension"
+              componentClassID="Microsoft.SCD"
+              contactInfo="Slowly Changing Dimension;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Updates a SQL Server Analysis Services data warehouse dimension. Update dimension records that are already present and  insert dimension records that aren't. For example, update the DimProduct table of the AdventureWorksDW OLAP database with data from the Products table in the AdventureWorks OLTP database."
+              name="Slowly Changing Dimension"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SELECT statement used to create a schema rowset."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [c_name], [Course_ID], [Evaluation], [Ins_name], [Num_hours], [Source_System_code], [Topic_name],[Start_Date],[End_Date] FROM [dbo].[Dim_Course]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
+                  name="CurrentRowWhere">[Start_Date] IS NOT NULL AND [End_Date] IS NULL</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether historical attribute updates are directed to the transformation output for changing attribute updates."
+                  name="UpdateChangingAttributeHistory">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when columns with fixed attributes contain changes."
+                  name="FailOnFixedAttributeChange">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the column name for the inferred member."
+                  name="InferredMemberIndicator"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether inferred member updates are detected."
+                  name="EnableInferredMember">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when a lookup of an existing record fails."
+                  name="FailOnLookupFailure">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies that all rows in the input are new or the transformation detects the change type."
+                  name="IncomingRowChangeType"
+                  typeConverter="IncomingRowChangeType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dim-Course\Slowly Changing Dimension.Connections[LookupConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-ALV673H.Student_Grades_DataMart]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-ALV673H.Student_Grades_DataMart]"
+                  description="Defines the connection to use for lookups in the dimension table"
+                  name="LookupConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Dim-Course\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+                  name="Slowly Changing Dimension Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim-Course\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[cr_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="cr_name"
+                      externalMetadataColumnId="Package\Dim-Course\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[c_name]"
+                      lineageId="Package\Dim-Course\Merge Join 1.Outputs[Merge Join Output].Columns[cr_name]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Dim-Course\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[course_ID]"
+                      cachedDataType="i4"
+                      cachedName="course_ID"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Dim-Course\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Course_ID]"
+                      lineageId="Package\Dim-Course\Merge Join 1.Outputs[Merge Join Output].Columns[course_ID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Dim-Course\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[evaluation]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="evaluation"
+                      externalMetadataColumnId="Package\Dim-Course\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Evaluation]"
+                      lineageId="Package\Dim-Course\Merge Join 1.Outputs[Merge Join Output].Columns[evaluation]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">3</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Dim-Course\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Ins_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Ins_name"
+                      externalMetadataColumnId="Package\Dim-Course\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Ins_name]"
+                      lineageId="Package\Dim-Course\Merge Join 1.Outputs[Merge Join Output].Columns[Ins_name]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Dim-Course\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Num_hours]"
+                      cachedDataType="i4"
+                      cachedName="Num_hours"
+                      externalMetadataColumnId="Package\Dim-Course\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Num_hours]"
+                      lineageId="Package\Dim-Course\Merge Join 1.Outputs[Merge Join Output].Columns[Num_hours]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Dim-Course\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Source_System_Code]"
+                      cachedDataType="i4"
+                      cachedName="Source_System_Code"
+                      externalMetadataColumnId="Package\Dim-Course\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Source_System_code]"
+                      lineageId="Package\Dim-Course\SourceS_Code.Outputs[Derived Column Output].Columns[Source_System_Code]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Dim-Course\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Topic_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Topic_name"
+                      externalMetadataColumnId="Package\Dim-Course\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Topic_name]"
+                      lineageId="Package\Dim-Course\Merge Join 1.Outputs[Merge Join Output].Columns[Topic_name]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dim-Course\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[c_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="c_name" />
+                    <externalMetadataColumn
+                      refId="Package\Dim-Course\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Course_ID]"
+                      dataType="i4"
+                      name="Course_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Dim-Course\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Evaluation]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Evaluation" />
+                    <externalMetadataColumn
+                      refId="Package\Dim-Course\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Ins_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Ins_name" />
+                    <externalMetadataColumn
+                      refId="Package\Dim-Course\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Num_hours]"
+                      dataType="i4"
+                      name="Num_hours" />
+                    <externalMetadataColumn
+                      refId="Package\Dim-Course\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Source_System_code]"
+                      dataType="i4"
+                      name="Source_System_code" />
+                    <externalMetadataColumn
+                      refId="Package\Dim-Course\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Topic_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Topic_name" />
+                    <externalMetadataColumn
+                      refId="Package\Dim-Course\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Start_Date]"
+                      dataType="dbTimeStamp"
+                      name="Start_Date" />
+                    <externalMetadataColumn
+                      refId="Package\Dim-Course\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[End_Date]"
+                      dataType="dbTimeStamp"
+                      name="End_Date" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim-Course\Slowly Changing Dimension.Outputs[Unchanged Output]"
+                  description="Unchanged rows"
+                  exclusionGroup="1"
+                  name="Unchanged Output"
+                  synchronousInputId="Package\Dim-Course\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim-Course\Slowly Changing Dimension.Outputs[New Output]"
+                  description="New rows"
+                  exclusionGroup="1"
+                  name="New Output"
+                  synchronousInputId="Package\Dim-Course\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim-Course\Slowly Changing Dimension.Outputs[Fixed Attribute Output]"
+                  description="Rows with changes in columns tagged FixedAttribute"
+                  exclusionGroup="1"
+                  name="Fixed Attribute Output"
+                  synchronousInputId="Package\Dim-Course\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim-Course\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]"
+                  description="These rows contain new information for ChangingAttribute (Type 1) column changes"
+                  exclusionGroup="1"
+                  name="Changing Attribute Updates Output"
+                  synchronousInputId="Package\Dim-Course\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim-Course\Slowly Changing Dimension.Outputs[Historical Attribute Inserts Output]"
+                  description="HistoricalAttribute (Type 2) changes result in these new rows"
+                  exclusionGroup="2"
+                  name="Historical Attribute Inserts Output"
+                  synchronousInputId="Package\Dim-Course\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim-Course\Slowly Changing Dimension.Outputs[Inferred Member Updates Output]"
+                  description="Information to update unpopulated initial dimension row"
+                  exclusionGroup="1"
+                  name="Inferred Member Updates Output"
+                  synchronousInputId="Package\Dim-Course\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim-Course\SourceS_Code"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="SourceS_Code"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Dim-Course\SourceS_Code.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim-Course\SourceS_Code.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Dim-Course\SourceS_Code.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim-Course\SourceS_Code.Outputs[Derived Column Output].Columns[Source_System_Code]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Dim-Course\SourceS_Code.Outputs[Derived Column Output].Columns[Source_System_Code]"
+                      name="Source_System_Code"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">1</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">1</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim-Course\SourceS_Code.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Dim-Course\SourceS_Code.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim-Course\SourceS_Code.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim-Course\SourceS_Code.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim-Course\SourceS_Code.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim-Course\SourceS_Code.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim-Course\Topic_Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Topic_Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Course]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select Course_ID, Topic_name
+from Topic
+order by Course_ID</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dim-Course\Topic_Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-ALV673H.ExaminationSystem 4]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-ALV673H.ExaminationSystem 4]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Dim-Course\Topic_Source.Outputs[OLE DB Source Output]"
+                  isSorted="true"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim-Course\Topic_Source.Outputs[OLE DB Source Output].Columns[Topic_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim-Course\Topic_Source.Outputs[OLE DB Source Output].ExternalColumns[Topic_name]"
+                      length="100"
+                      lineageId="Package\Dim-Course\Topic_Source.Outputs[OLE DB Source Output].Columns[Topic_name]"
+                      name="Topic_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dim-Course\Topic_Source.Outputs[OLE DB Source Output].Columns[Course_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim-Course\Topic_Source.Outputs[OLE DB Source Output].ExternalColumns[Course_ID]"
+                      lineageId="Package\Dim-Course\Topic_Source.Outputs[OLE DB Source Output].Columns[Course_ID]"
+                      name="Course_ID"
+                      sortKeyPosition="1"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dim-Course\Topic_Source.Outputs[OLE DB Source Output].ExternalColumns[Topic_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Topic_name" />
+                    <externalMetadataColumn
+                      refId="Package\Dim-Course\Topic_Source.Outputs[OLE DB Source Output].ExternalColumns[Course_ID]"
+                      dataType="i4"
+                      name="Course_ID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Dim-Course\Topic_Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim-Course\Topic_Source.Outputs[OLE DB Source Error Output].Columns[Course_ID]"
+                      dataType="i4"
+                      lineageId="Package\Dim-Course\Topic_Source.Outputs[OLE DB Source Error Output].Columns[Course_ID]"
+                      name="Course_ID" />
+                    <outputColumn
+                      refId="Package\Dim-Course\Topic_Source.Outputs[OLE DB Source Error Output].Columns[Topic_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Dim-Course\Topic_Source.Outputs[OLE DB Source Error Output].Columns[Topic_name]"
+                      name="Topic_name" />
+                    <outputColumn
+                      refId="Package\Dim-Course\Topic_Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim-Course\Topic_Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim-Course\Topic_Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim-Course\Topic_Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim-Course\Union All"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="Union All"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\Dim-Course\Union All.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim-Course\Union All.Inputs[Union All Input 1].Columns[cr_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="cr_name"
+                      lineageId="Package\Dim-Course\Merge Join 1.Outputs[Merge Join Output].Columns[cr_name]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Dim-Course\Union All.Outputs[Union All Output 1].Columns[cr_name]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Dim-Course\Union All.Inputs[Union All Input 1].Columns[Num_hours]"
+                      cachedDataType="i4"
+                      cachedName="Num_hours"
+                      lineageId="Package\Dim-Course\Merge Join 1.Outputs[Merge Join Output].Columns[Num_hours]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Dim-Course\Union All.Outputs[Union All Output 1].Columns[Num_hours]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Dim-Course\Union All.Inputs[Union All Input 1].Columns[evaluation]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="evaluation"
+                      lineageId="Package\Dim-Course\Merge Join 1.Outputs[Merge Join Output].Columns[evaluation]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Dim-Course\Union All.Outputs[Union All Output 1].Columns[evaluation]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Dim-Course\Union All.Inputs[Union All Input 1].Columns[Topic_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Topic_name"
+                      lineageId="Package\Dim-Course\Merge Join 1.Outputs[Merge Join Output].Columns[Topic_name]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Dim-Course\Union All.Outputs[Union All Output 1].Columns[Topic_name]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Dim-Course\Union All.Inputs[Union All Input 1].Columns[Ins_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Ins_name"
+                      lineageId="Package\Dim-Course\Merge Join 1.Outputs[Merge Join Output].Columns[Ins_name]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Dim-Course\Union All.Outputs[Union All Output 1].Columns[Ins_name]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Dim-Course\Union All.Inputs[Union All Input 1].Columns[course_ID]"
+                      cachedDataType="i4"
+                      cachedName="course_ID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Dim-Course\Merge Join 1.Outputs[Merge Join Output].Columns[course_ID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Dim-Course\Union All.Outputs[Union All Output 1].Columns[course_ID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Dim-Course\Union All.Inputs[Union All Input 1].Columns[Source_System_Code]"
+                      cachedDataType="i4"
+                      cachedName="Source_System_Code"
+                      lineageId="Package\Dim-Course\SourceS_Code.Outputs[Derived Column Output].Columns[Source_System_Code]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Dim-Course\Union All.Outputs[Union All Output 1].Columns[Source_System_Code]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Dim-Course\Union All.Inputs[Union All Input 2]"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim-Course\Union All.Inputs[Union All Input 2].Columns[cr_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="cr_name"
+                      lineageId="Package\Dim-Course\Merge Join 1.Outputs[Merge Join Output].Columns[cr_name]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Dim-Course\Union All.Outputs[Union All Output 1].Columns[cr_name]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Dim-Course\Union All.Inputs[Union All Input 2].Columns[Num_hours]"
+                      cachedDataType="i4"
+                      cachedName="Num_hours"
+                      lineageId="Package\Dim-Course\Merge Join 1.Outputs[Merge Join Output].Columns[Num_hours]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Dim-Course\Union All.Outputs[Union All Output 1].Columns[Num_hours]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Dim-Course\Union All.Inputs[Union All Input 2].Columns[evaluation]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="evaluation"
+                      lineageId="Package\Dim-Course\Merge Join 1.Outputs[Merge Join Output].Columns[evaluation]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Dim-Course\Union All.Outputs[Union All Output 1].Columns[evaluation]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Dim-Course\Union All.Inputs[Union All Input 2].Columns[Topic_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Topic_name"
+                      lineageId="Package\Dim-Course\Merge Join 1.Outputs[Merge Join Output].Columns[Topic_name]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Dim-Course\Union All.Outputs[Union All Output 1].Columns[Topic_name]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Dim-Course\Union All.Inputs[Union All Input 2].Columns[Ins_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Ins_name"
+                      lineageId="Package\Dim-Course\Merge Join 1.Outputs[Merge Join Output].Columns[Ins_name]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Dim-Course\Union All.Outputs[Union All Output 1].Columns[Ins_name]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Dim-Course\Union All.Inputs[Union All Input 2].Columns[course_ID]"
+                      cachedDataType="i4"
+                      cachedName="course_ID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Dim-Course\Merge Join 1.Outputs[Merge Join Output].Columns[course_ID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Dim-Course\Union All.Outputs[Union All Output 1].Columns[course_ID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Dim-Course\Union All.Inputs[Union All Input 2].Columns[Source_System_Code]"
+                      cachedDataType="i4"
+                      cachedName="Source_System_Code"
+                      lineageId="Package\Dim-Course\SourceS_Code.Outputs[Derived Column Output].Columns[Source_System_Code]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Dim-Course\Union All.Outputs[Union All Output 1].Columns[Source_System_Code]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Dim-Course\Union All.Inputs[Union All Input 3]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim-Course\Union All.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim-Course\Union All.Outputs[Union All Output 1].Columns[cr_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Dim-Course\Union All.Outputs[Union All Output 1].Columns[cr_name]"
+                      name="cr_name" />
+                    <outputColumn
+                      refId="Package\Dim-Course\Union All.Outputs[Union All Output 1].Columns[Num_hours]"
+                      dataType="i4"
+                      lineageId="Package\Dim-Course\Union All.Outputs[Union All Output 1].Columns[Num_hours]"
+                      name="Num_hours" />
+                    <outputColumn
+                      refId="Package\Dim-Course\Union All.Outputs[Union All Output 1].Columns[evaluation]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Dim-Course\Union All.Outputs[Union All Output 1].Columns[evaluation]"
+                      name="evaluation" />
+                    <outputColumn
+                      refId="Package\Dim-Course\Union All.Outputs[Union All Output 1].Columns[Topic_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Dim-Course\Union All.Outputs[Union All Output 1].Columns[Topic_name]"
+                      name="Topic_name" />
+                    <outputColumn
+                      refId="Package\Dim-Course\Union All.Outputs[Union All Output 1].Columns[Ins_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Dim-Course\Union All.Outputs[Union All Output 1].Columns[Ins_name]"
+                      name="Ins_name" />
+                    <outputColumn
+                      refId="Package\Dim-Course\Union All.Outputs[Union All Output 1].Columns[course_ID]"
+                      dataType="i4"
+                      lineageId="Package\Dim-Course\Union All.Outputs[Union All Output 1].Columns[course_ID]"
+                      name="course_ID" />
+                    <outputColumn
+                      refId="Package\Dim-Course\Union All.Outputs[Union All Output 1].Columns[Source_System_Code]"
+                      dataType="i4"
+                      lineageId="Package\Dim-Course\Union All.Outputs[Union All Output 1].Columns[Source_System_Code]"
+                      name="Source_System_Code" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Dim-Course.Paths[Changing Attribute Updates Output]"
+              endId="Package\Dim-Course\OLE DB Command 1.Inputs[OLE DB Command Input]"
+              name="Changing Attribute Updates Output"
+              startId="Package\Dim-Course\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]" />
+            <path
+              refId="Package\Dim-Course.Paths[Derived Column Output]"
+              endId="Package\Dim-Course\SourceS_Code.Inputs[Derived Column Input]"
+              name="Derived Column Output"
+              startId="Package\Dim-Course\Replace_nulls.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Dim-Course.Paths[Derived Column Output1]"
+              endId="Package\Dim-Course\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+              name="Derived Column Output"
+              startId="Package\Dim-Course\SourceS_Code.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Dim-Course.Paths[Derived Column Output2]"
+              endId="Package\Dim-Course\OLE DB Command.Inputs[OLE DB Command Input]"
+              name="Derived Column Output"
+              startId="Package\Dim-Course\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Dim-Course.Paths[Derived Column Output3]"
+              endId="Package\Dim-Course\Insert Destination.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\Dim-Course\Derived Column 1.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Dim-Course.Paths[Historical Attribute Inserts Output]"
+              endId="Package\Dim-Course\Derived Column.Inputs[Derived Column Input]"
+              name="Historical Attribute Inserts Output"
+              startId="Package\Dim-Course\Slowly Changing Dimension.Outputs[Historical Attribute Inserts Output]" />
+            <path
+              refId="Package\Dim-Course.Paths[Merge Join Output]"
+              endId="Package\Dim-Course\Merge Join 1.Inputs[Merge Join Left Input]"
+              name="Merge Join Output"
+              startId="Package\Dim-Course\Merge Join.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\Dim-Course.Paths[Merge Join Output1]"
+              endId="Package\Dim-Course\Replace_nulls.Inputs[Derived Column Input]"
+              name="Merge Join Output"
+              startId="Package\Dim-Course\Merge Join 1.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\Dim-Course.Paths[New Output]"
+              endId="Package\Dim-Course\Union All.Inputs[Union All Input 1]"
+              name="New Output"
+              startId="Package\Dim-Course\Slowly Changing Dimension.Outputs[New Output]" />
+            <path
+              refId="Package\Dim-Course.Paths[OLE DB Command Output]"
+              endId="Package\Dim-Course\Union All.Inputs[Union All Input 2]"
+              name="OLE DB Command Output"
+              startId="Package\Dim-Course\OLE DB Command.Outputs[OLE DB Command Output]" />
+            <path
+              refId="Package\Dim-Course.Paths[OLE DB Source Output]"
+              endId="Package\Dim-Course\Merge Join.Inputs[Merge Join Left Input]"
+              name="OLE DB Source Output"
+              startId="Package\Dim-Course\Course_Source.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Dim-Course.Paths[OLE DB Source Output1]"
+              endId="Package\Dim-Course\Merge Join.Inputs[Merge Join Right Input]"
+              name="OLE DB Source Output"
+              startId="Package\Dim-Course\Topic_Source.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Dim-Course.Paths[OLE DB Source Output2]"
+              endId="Package\Dim-Course\Merge Join 1.Inputs[Merge Join Right Input]"
+              name="OLE DB Source Output"
+              startId="Package\Dim-Course\Instructor_Source.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Dim-Course.Paths[Union All Output 1]"
+              endId="Package\Dim-Course\Derived Column 1.Inputs[Derived Column Input]"
+              name="Union All Output 1"
+              startId="Package\Dim-Course\Union All.Outputs[Union All Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="133.6,41.6"
+          Id="Package\Dim-Course"
+          TopLeft="373.571429366664,175.882352787009" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Dim-Course">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\Dim-Course\Merge Join"
+          TopLeft="228.9,107.1" />
+        <NodeLayout
+          Size="208,41.6"
+          Id="Package\Dim-Course\Slowly Changing Dimension"
+          TopLeft="189.7,513.5" />
+        <NodeLayout
+          Size="138.4,41.6"
+          Id="Package\Dim-Course\Merge Join 1"
+          TopLeft="224.5,208.7" />
+        <NodeLayout
+          Size="142.4,41.6"
+          Id="Package\Dim-Course\Replace_nulls"
+          TopLeft="222.5,310.3" />
+        <NodeLayout
+          Size="141.6,41.6"
+          Id="Package\Dim-Course\Topic_Source"
+          TopLeft="16.9,5.49999999999995" />
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\Dim-Course\Instructor_Source"
+          TopLeft="5.49999999999999,107.1" />
+        <NodeLayout
+          Size="145.6,41.6"
+          Id="Package\Dim-Course\SourceS_Code"
+          TopLeft="220.9,411.9" />
+        <NodeLayout
+          Size="148.8,41.6"
+          Id="Package\Dim-Course\Course_Source"
+          TopLeft="219.3,5.49999999999995" />
+        <EdgeLayout
+          Id="Package\Dim-Course.Paths[OLE DB Source Output2]"
+          TopLeft="86.7,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="185.266666666667,59.9999999999999"
+              Start="0,0"
+              End="185.266666666667,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5885714285713" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.5885714285713"
+                    Point2="0,35.5885714285713"
+                    Point3="4,35.5885714285713" />
+                  <mssgle:LineSegment
+                    End="181.266666666667,35.5885714285713" />
+                  <mssgle:CubicBezierSegment
+                    Point1="181.266666666667,35.5885714285713"
+                    Point2="185.266666666667,35.5885714285713"
+                    Point3="185.266666666667,39.5885714285713" />
+                  <mssgle:LineSegment
+                    End="185.266666666667,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim-Course.Paths[OLE DB Source Output1]"
+          TopLeft="87.7,47.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="185.733333333333,59.9999999999999"
+              Start="0,0"
+              End="185.733333333333,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5609756097561" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.5609756097561"
+                    Point2="0,35.5609756097561"
+                    Point3="4,35.5609756097561" />
+                  <mssgle:LineSegment
+                    End="181.733333333333,35.5609756097561" />
+                  <mssgle:CubicBezierSegment
+                    Point1="181.733333333333,35.5609756097561"
+                    Point2="185.733333333333,35.5609756097561"
+                    Point3="185.733333333333,39.5609756097561" />
+                  <mssgle:LineSegment
+                    End="185.733333333333,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim-Course.Paths[OLE DB Source Output]"
+          TopLeft="293.7,47.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="20.2666666666667,59.9999999999999"
+              Start="0,0"
+              End="20.2666666666667,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.560975609756" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.560975609756"
+                    Point2="0,35.560975609756"
+                    Point3="4,35.560975609756" />
+                  <mssgle:LineSegment
+                    End="16.2666666666667,35.560975609756" />
+                  <mssgle:CubicBezierSegment
+                    Point1="16.2666666666667,35.560975609756"
+                    Point2="20.2666666666667,35.560975609756"
+                    Point3="20.2666666666667,39.560975609756" />
+                  <mssgle:LineSegment
+                    End="20.2666666666667,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim-Course.Paths[Merge Join Output1]"
+          TopLeft="293.7,250.3">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim-Course.Paths[Merge Join Output]"
+          TopLeft="293.7,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="21.7333333333333,59.9999999999999"
+              Start="0,0"
+              End="21.7333333333333,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5885714285714" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.5885714285714"
+                    Point2="0,35.5885714285714"
+                    Point3="4,35.5885714285714" />
+                  <mssgle:LineSegment
+                    End="17.7333333333333,35.5885714285714" />
+                  <mssgle:CubicBezierSegment
+                    Point1="17.7333333333333,35.5885714285714"
+                    Point2="21.7333333333333,35.5885714285714"
+                    Point3="21.7333333333333,39.5885714285714" />
+                  <mssgle:LineSegment
+                    End="21.7333333333333,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim-Course.Paths[Derived Column Output1]"
+          TopLeft="293.7,453.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim-Course.Paths[Derived Column Output]"
+          TopLeft="293.7,351.9">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\Dim-Course\Derived Column"
+          TopLeft="80.3,615.099999999999" />
+        <EdgeLayout
+          Id="Package\Dim-Course.Paths[Historical Attribute Inserts Output]"
+          TopLeft="243.7,555.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-87,59.9999999999999"
+              Start="0,0"
+              End="-87,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.506329113924" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.506329113924"
+                    Point2="0,20.506329113924"
+                    Point3="-4,20.506329113924" />
+                  <mssgle:LineSegment
+                    End="-83,20.506329113924" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-83,20.506329113924"
+                    Point2="-87,20.506329113924"
+                    Point3="-87,24.506329113924" />
+                  <mssgle:LineSegment
+                    End="-87,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-118.55638671875,25.506329113924,150.1127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Dim-Course\OLE DB Command"
+          TopLeft="68.3,716.699999999999" />
+        <EdgeLayout
+          Id="Package\Dim-Course.Paths[Derived Column Output2]"
+          TopLeft="153.7,656.699999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="120,41.6"
+          Id="Package\Dim-Course\Union All"
+          TopLeft="233.7,818.299999999999" />
+        <EdgeLayout
+          Id="Package\Dim-Course.Paths[New Output]"
+          TopLeft="293.7,555.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="18.6666666666666,263.2"
+              Start="0,0"
+              End="18.6666666666666,255.7">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,151.842105263158" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,151.842105263158"
+                    Point2="0,155.842105263158"
+                    Point3="4,155.842105263158" />
+                  <mssgle:LineSegment
+                    End="14.6666666666666,155.842105263158" />
+                  <mssgle:CubicBezierSegment
+                    Point1="14.6666666666666,155.842105263158"
+                    Point2="18.6666666666666,155.842105263158"
+                    Point3="18.6666666666666,159.842105263158" />
+                  <mssgle:LineSegment
+                    End="18.6666666666666,255.7" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-17.7580533854167,160.842105263158,54.1827734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim-Course.Paths[OLE DB Command Output]"
+          TopLeft="150.7,758.299999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="124.333333333333,59.9999999999999"
+              Start="0,0"
+              End="124.333333333333,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5263157894736" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.5263157894736"
+                    Point2="0,35.5263157894736"
+                    Point3="4,35.5263157894736" />
+                  <mssgle:LineSegment
+                    End="120.333333333333,35.5263157894736" />
+                  <mssgle:CubicBezierSegment
+                    Point1="120.333333333333,35.5263157894736"
+                    Point2="124.333333333333,35.5263157894736"
+                    Point3="124.333333333333,39.5263157894736" />
+                  <mssgle:LineSegment
+                    End="124.333333333333,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\Dim-Course\Derived Column 1"
+          TopLeft="212.5,919.899999999999" />
+        <EdgeLayout
+          Id="Package\Dim-Course.Paths[Union All Output 1]"
+          TopLeft="293.7,859.899999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\Dim-Course\Insert Destination"
+          TopLeft="212.5,1021.5" />
+        <EdgeLayout
+          Id="Package\Dim-Course.Paths[Derived Column Output3]"
+          TopLeft="293.7,961.499999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="174.4,41.6"
+          Id="Package\Dim-Course\OLE DB Command 1"
+          TopLeft="354.5,615.099999999999" />
+        <EdgeLayout
+          Id="Package\Dim-Course.Paths[Changing Attribute Updates Output]"
+          TopLeft="343.7,555.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="98,59.9999999999999"
+              Start="0,0"
+              End="98,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.506329113924" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.506329113924"
+                    Point2="0,20.506329113924"
+                    Point3="4,20.506329113924" />
+                  <mssgle:LineSegment
+                    End="94,20.506329113924" />
+                  <mssgle:CubicBezierSegment
+                    Point1="94,20.506329113924"
+                    Point2="98,20.506329113924"
+                    Point3="98,24.506329113924" />
+                  <mssgle:LineSegment
+                    End="98,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-29.53390625,25.506329113924,157.0678125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim-Course\Slowly Changing Dimension">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;ConnectionID&gt;{694F66C9-8668-4FD9-9A83-B06C31989B52}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[Dim_Course]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Merge Join 1.Outputs[Merge Join Output].Columns[cr_name]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;c_name&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Merge Join 1.Outputs[Merge Join Output].Columns[course_ID]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Course_ID&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Merge Join 1.Outputs[Merge Join Output].Columns[evaluation]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Evaluation&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Merge Join 1.Outputs[Merge Join Output].Columns[Ins_name]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Ins_name&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Merge Join 1.Outputs[Merge Join Output].Columns[Num_hours]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Num_hours&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;SourceS_Code.Outputs[Derived Column Output].Columns[Source_System_Code]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Source_System_code&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Merge Join 1.Outputs[Merge Join Output].Columns[Topic_name]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Topic_name&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Derived Column&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Union All&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Derived Column 1&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command 1&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;true&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;true&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn&gt;Start_Date&lt;/StartDateColumn&gt;
+  &lt;EndDateColumn&gt;End_Date&lt;/EndDateColumn&gt;
+  &lt;DateVariable&gt;System::StartTime&lt;/DateVariable&gt;
+  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim-Course\Topic_Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim-Course\Instructor_Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim-Course\Course_Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim-Course\Insert Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

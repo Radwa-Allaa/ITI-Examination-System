@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="DESKTOP-ALV673H.ExaminationSystem 1"
+  DTS:DTSID="{13AA8B8F-673E-4C4B-BCF3-2D83515CD6F5}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=DESKTOP-ALV673H;Initial Catalog=Student_Grades_DataMart;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Student_Scores_DataMart-{13AA8B8F-673E-4C4B-BCF3-2D83515CD6F5}DESKTOP-ALV673H.ExaminationSystem 1;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
