@@ -380,6 +380,9 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
+
+-------------------------------------------------------------Insert Into Answer Table (with exam_answer Stored Procedure & Web App)---------------------------------------------------------------------- 
+
 INSERT [dbo].[Answer] ([St_ID], [ex_ID], [QS_ID], [St_Answer]) VALUES (1, 1, 2, N'False')
 GO
 INSERT [dbo].[Answer] ([St_ID], [ex_ID], [QS_ID], [St_Answer]) VALUES (1, 1, 3, N'True')
@@ -1078,6 +1081,9 @@ INSERT [dbo].[Answer] ([St_ID], [ex_ID], [QS_ID], [St_Answer]) VALUES (778, 31, 
 GO
 INSERT [dbo].[Answer] ([St_ID], [ex_ID], [QS_ID], [St_Answer]) VALUES (778, 31, 58, N'To group rows that have the same values in specified columns and perform aggregate functions on them')
 GO
+
+-------------------------------------------------------------Insert Into Branch Table----------------------------------------------------------------------
+
 INSERT [dbo].[Branch] ([B_ID], [B_name], [B_location]) VALUES (1, N'Qena ITI', N'Qena, Egypt')
 GO
 INSERT [dbo].[Branch] ([B_ID], [B_name], [B_location]) VALUES (2, N'Alexandria ITI', N'Alexandria, Egypt')
@@ -1106,6 +1112,9 @@ INSERT [dbo].[Branch] ([B_ID], [B_name], [B_location]) VALUES (13, N'Smart Villa
 GO
 INSERT [dbo].[Branch] ([B_ID], [B_name], [B_location]) VALUES (14, N'Mansoura ITI', N'Mansoura, Egypt')
 GO
+
+-------------------------------------------------------------Insert Into branch_Intake Table---------------------------------------------------------------------- 
+
 INSERT [dbo].[branch_Intake] ([B_ID], [Intake_ID]) VALUES (1, 1)
 GO
 INSERT [dbo].[branch_Intake] ([B_ID], [Intake_ID]) VALUES (1, 2)
@@ -1464,6 +1473,9 @@ INSERT [dbo].[branch_Intake] ([B_ID], [Intake_ID]) VALUES (14, 44)
 GO
 INSERT [dbo].[branch_Intake] ([B_ID], [Intake_ID]) VALUES (14, 45)
 GO
+
+-------------------------------------------------------------Insert Into branch_intake_track Table---------------------------------------------------------------------- 
+
 INSERT [dbo].[branch_intake_track] ([B_ID], [Intake_ID], [track_ID]) VALUES (1, 1, 1)
 GO
 INSERT [dbo].[branch_intake_track] ([B_ID], [Intake_ID], [track_ID]) VALUES (1, 1, 20)
@@ -3070,6 +3082,9 @@ INSERT [dbo].[branch_intake_track] ([B_ID], [Intake_ID], [track_ID]) VALUES (14,
 GO
 INSERT [dbo].[branch_intake_track] ([B_ID], [Intake_ID], [track_ID]) VALUES (14, 45, 27)
 GO
+
+-------------------------------------------------------------Insert Into Choice Table---------------------------------------------------------------------- 
+
 INSERT [dbo].[Choice] ([choice_ID], [choice_Desc], [QS_ID]) VALUES (1, N'True', 1)
 GO
 INSERT [dbo].[Choice] ([choice_ID], [choice_Desc], [QS_ID]) VALUES (2, N'False', 1)
@@ -3372,9 +3387,7 @@ INSERT [dbo].[Choice] ([choice_ID], [choice_Desc], [QS_ID]) VALUES (150, N'To fi
 GO
 INSERT [dbo].[Choice] ([choice_ID], [choice_Desc], [QS_ID]) VALUES (151, N'To combine rows from two or more tables based on a related column', 53)
 GO
-INSERT [dbo].[Choice] ([choice_ID], [choice_Desc], [QS_ID]) VALUES (152, N'To aggregate data by grouping records
-
-', 53)
+INSERT [dbo].[Choice] ([choice_ID], [choice_Desc], [QS_ID]) VALUES (152, N'To aggregate data by grouping records', 53)
 GO
 INSERT [dbo].[Choice] ([choice_ID], [choice_Desc], [QS_ID]) VALUES (153, N'GROUP BY', 54)
 GO
@@ -3792,6 +3805,9 @@ INSERT [dbo].[Choice] ([choice_ID], [choice_Desc], [QS_ID]) VALUES (359, N'Trans
 GO
 INSERT [dbo].[Choice] ([choice_ID], [choice_Desc], [QS_ID]) VALUES (360, N'Application Layer', 120)
 GO
+
+-------------------------------------------------------------Insert Into company Table---------------------------------------------------------------------- 
+
 INSERT [dbo].[company] ([company_ID], [company_name], [company_Location]) VALUES (2, N'Telecom Data', N'Cairo, Egypt')
 GO
 INSERT [dbo].[company] ([company_ID], [company_name], [company_Location]) VALUES (3, N'Orange EG', N'Cairo, Egypt')
@@ -3992,6 +4008,9 @@ INSERT [dbo].[company] ([company_ID], [company_name], [company_Location]) VALUES
 GO
 INSERT [dbo].[company] ([company_ID], [company_name], [company_Location]) VALUES (101, N'Google', N'Armonk, USA')
 GO
+
+-------------------------------------------------------------Insert Into Course Table---------------------------------------------------------------------- 
+
 INSERT [dbo].[Course] ([course_ID], [cr_name], [Num_hours], [evaluation]) VALUES (1, N'IntoductionToPython', 20, N'Final Exam')
 GO
 INSERT [dbo].[Course] ([course_ID], [cr_name], [Num_hours], [evaluation]) VALUES (2, N'Data Analysis with Python', 10, N'Projects')
@@ -4092,6 +4111,9 @@ INSERT [dbo].[Course] ([course_ID], [cr_name], [Num_hours], [evaluation]) VALUES
 GO
 INSERT [dbo].[Course] ([course_ID], [cr_name], [Num_hours], [evaluation]) VALUES (50, N'Houdini Basics', 12, N'Projects')
 GO
+
+-------------------------------------------------------------Insert Into course_instructor Table---------------------------------------------------------------------- 
+
 INSERT [dbo].[course_instructor] ([course_ID], [ins_ID]) VALUES (1, 1)
 GO
 INSERT [dbo].[course_instructor] ([course_ID], [ins_ID]) VALUES (1, 11)
@@ -4528,6 +4550,9 @@ INSERT [dbo].[course_instructor] ([course_ID], [ins_ID]) VALUES (50, 40)
 GO
 INSERT [dbo].[course_instructor] ([course_ID], [ins_ID]) VALUES (50, 60)
 GO
+
+-------------------------------------------------------------Insert Into Department Table---------------------------------------------------------------------- 
+
 INSERT [dbo].[Department] ([Dept_ID], [Dept_Name], [Manger_ID]) VALUES (1, N'Industrial Systems', 1)
 GO
 INSERT [dbo].[Department] ([Dept_ID], [Dept_Name], [Manger_ID]) VALUES (2, N'Content Developments', 2)
@@ -4542,6 +4567,9 @@ INSERT [dbo].[Department] ([Dept_ID], [Dept_Name], [Manger_ID]) VALUES (6, N'Cog
 GO
 INSERT [dbo].[Department] ([Dept_ID], [Dept_Name], [Manger_ID]) VALUES (7, N'QA Engineering & Validation', 7)
 GO
+
+-------------------------------------------------------------Insert Into Exam Table (with Exam_Generation Stored Procedure & Web App)---------------------------------------------------------------------- 
+
 INSERT [dbo].[Exam] ([ex_ID], [duration], [start_time], [course_ID], [ex_grade], [Modification_Date]) VALUES (1, 120, CAST(N'2024-08-01T09:00:00.000' AS DateTime), 1, 15, CAST(N'2024-08-21T09:04:18.370' AS DateTime))
 GO
 INSERT [dbo].[Exam] ([ex_ID], [duration], [start_time], [course_ID], [ex_grade], [Modification_Date]) VALUES (2, 60, CAST(N'2024-08-02T11:00:00.000' AS DateTime), 7, 15, CAST(N'2024-08-21T09:15:08.523' AS DateTime))
@@ -4604,6 +4632,9 @@ INSERT [dbo].[Exam] ([ex_ID], [duration], [start_time], [course_ID], [ex_grade],
 GO
 INSERT [dbo].[Exam] ([ex_ID], [duration], [start_time], [course_ID], [ex_grade], [Modification_Date]) VALUES (31, 60, CAST(N'2024-08-22T03:00:00.000' AS DateTime), 13, 12, CAST(N'2024-08-30T03:45:55.210' AS DateTime))
 GO
+
+-------------------------------------------------------------Insert Into Graduates Table---------------------------------------------------------------------- 
+
 INSERT [dbo].[Graduates] ([graduate_ID], [graduate_name], [job_title], [track_ID], [Gender], [G_Faculty], [Age], [G_city]) VALUES (1, N'Ahmed Ali', N'Cloud Engineer', 16, N'M', N'Faculty of Computers and Artificial Intelligence', 25, N'Giza')
 GO
 INSERT [dbo].[Graduates] ([graduate_ID], [graduate_name], [job_title], [track_ID], [Gender], [G_Faculty], [Age], [G_city]) VALUES (2, N'Fatma Mohamed', N'Cloud Engineer', 16, N'F', N'Faculty of Computers and Artificial Intelligence', 24, N'Giza')
@@ -5640,6 +5671,9 @@ INSERT [dbo].[Graduates] ([graduate_ID], [graduate_name], [job_title], [track_ID
 GO
 INSERT [dbo].[Graduates] ([graduate_ID], [graduate_name], [job_title], [track_ID], [Gender], [G_Faculty], [Age], [G_city]) VALUES (518, N'Alaa Salah', N'Software Engineering', 20, N'M', N'Faculty of Education', 34, N'Luxor')
 GO
+
+-------------------------------------------------------------Insert Into graduates_company Table---------------------------------------------------------------------- 
+
 INSERT [dbo].[graduates_company] ([graduates_ID], [company_ID], [grad_Salary]) VALUES (1, 5, CAST(6200.00 AS Decimal(10, 2)))
 GO
 INSERT [dbo].[graduates_company] ([graduates_ID], [company_ID], [grad_Salary]) VALUES (2, 7, CAST(6300.00 AS Decimal(10, 2)))
@@ -6034,6 +6068,9 @@ INSERT [dbo].[graduates_company] ([graduates_ID], [company_ID], [grad_Salary]) V
 GO
 INSERT [dbo].[graduates_company] ([graduates_ID], [company_ID], [grad_Salary]) VALUES (200, 88, CAST(14800.00 AS Decimal(10, 2)))
 GO
+
+-------------------------------------------------------------Insert Into Instructor Table---------------------------------------------------------------------- 
+
 INSERT [dbo].[Instructor] ([ins_ID], [ins_name], [ins_email], [ins_gender], [Salary], [Dept_ID], [Ins_city]) VALUES (1, N'Ahmed', N'ahmed.abdelrahman@example.com', N'M', CAST(6000.00 AS Decimal(10, 2)), 5, N'Cairo')
 GO
 INSERT [dbo].[Instructor] ([ins_ID], [ins_name], [ins_email], [ins_gender], [Salary], [Dept_ID], [Ins_city]) VALUES (2, N'Fatma', N'fatma.ali@example.com', N'F', CAST(5500.00 AS Decimal(10, 2)), 5, N'Alexandria')
@@ -6154,6 +6191,9 @@ INSERT [dbo].[Instructor] ([ins_ID], [ins_name], [ins_email], [ins_gender], [Sal
 GO
 INSERT [dbo].[Instructor] ([ins_ID], [ins_name], [ins_email], [ins_gender], [Salary], [Dept_ID], [Ins_city]) VALUES (60, N'Radwa', N'Radwa.alaa@example.com', N'F', CAST(6400.00 AS Decimal(10, 2)), 5, N'Kafr El Sheikh')
 GO
+
+-------------------------------------------------------------Insert Into InstructorPhone Table---------------------------------------------------------------------- 
+
 INSERT [dbo].[InstructorPhone] ([ins_ID], [ins_phone]) VALUES (1, N'01012345678')
 GO
 INSERT [dbo].[InstructorPhone] ([ins_ID], [ins_phone]) VALUES (2, N'01023456789')
@@ -6274,6 +6314,9 @@ INSERT [dbo].[InstructorPhone] ([ins_ID], [ins_phone]) VALUES (59, N'01010123457
 GO
 INSERT [dbo].[InstructorPhone] ([ins_ID], [ins_phone]) VALUES (60, N'01010123457')
 GO
+
+-------------------------------------------------------------Insert Into Intake Table---------------------------------------------------------------------- 
+
 INSERT [dbo].[Intake] ([Intake_ID], [Intake_name]) VALUES (1, N'intake1')
 GO
 INSERT [dbo].[Intake] ([Intake_ID], [Intake_name]) VALUES (2, N'intake2')
@@ -6364,6 +6407,9 @@ INSERT [dbo].[Intake] ([Intake_ID], [Intake_name]) VALUES (44, N'intake44')
 GO
 INSERT [dbo].[Intake] ([Intake_ID], [Intake_name]) VALUES (45, N'intake45')
 GO
+
+-------------------------------------------------------------Insert Into Question Table---------------------------------------------------------------------- 
+
 INSERT [dbo].[Question] ([Qs_ID], [Qs_degree], [Qs_desc], [Qs_type], [correct_answer], [Course_ID]) VALUES (1, 1, N'In Python, the "print" function can take multiple arguments.', N'True/False', N'True', 1)
 GO
 INSERT [dbo].[Question] ([Qs_ID], [Qs_degree], [Qs_desc], [Qs_type], [correct_answer], [Course_ID]) VALUES (2, 1, N'In Python, lists are immutable.', N'True/False', N'False', 1)
@@ -6604,6 +6650,9 @@ INSERT [dbo].[Question] ([Qs_ID], [Qs_degree], [Qs_desc], [Qs_type], [correct_an
 GO
 INSERT [dbo].[Question] ([Qs_ID], [Qs_degree], [Qs_desc], [Qs_type], [correct_answer], [Course_ID]) VALUES (120, 2, N'Which layer of the OSI model is responsible for establishing, managing, and terminating connections between applications?', N'MCQ', N'Session Layer', 25)
 GO
+
+-------------------------------------------------------------Insert Into question_exam Table (with Exam_Generation Stored Procedure & Web App)---------------------------------------------------------------------- 
+
 INSERT [dbo].[question_exam] ([Qs_ID], [ex_ID]) VALUES (1, 22)
 GO
 INSERT [dbo].[question_exam] ([Qs_ID], [ex_ID]) VALUES (1, 24)
@@ -7224,6 +7273,9 @@ INSERT [dbo].[question_exam] ([Qs_ID], [ex_ID]) VALUES (120, 16)
 GO
 INSERT [dbo].[question_exam] ([Qs_ID], [ex_ID]) VALUES (120, 25)
 GO
+
+-------------------------------------------------------------Insert Into Student Table---------------------------------------------------------------------- 
+
 INSERT [dbo].[Student] ([St_ID], [St_name], [St_age], [St_email], [gender], [track_ID], [St_city], [St_Faculty], [Certification], [Freelance], [B_ID], [Intake_ID]) VALUES (1, N'Mohamed Hassan', 22, N'mohamed.hassan@example.com', N'M', 2, N'Cairo', N'Faculty of Engineering', 3, N'Failed', 2, 1)
 GO
 INSERT [dbo].[Student] ([St_ID], [St_name], [St_age], [St_email], [gender], [track_ID], [St_city], [St_Faculty], [Certification], [Freelance], [B_ID], [Intake_ID]) VALUES (2, N'Fatma Ali', 23, N'fatma.ali@example.com', N'F', 2, N'Alexandria', N'Faculty of Medicine', 3, N'Passed', 2, 2)
@@ -8780,6 +8832,9 @@ INSERT [dbo].[Student] ([St_ID], [St_name], [St_age], [St_email], [gender], [tra
 GO
 INSERT [dbo].[Student] ([St_ID], [St_name], [St_age], [St_email], [gender], [track_ID], [St_city], [St_Faculty], [Certification], [Freelance], [B_ID], [Intake_ID]) VALUES (778, N'Lina Khaled', 23, N'lina.khaled@example.com', N'F', 27, N'Kafr El Sheikh', N'Faculty of Computers and Information Technology', 2, N'Failed', 14, 45)
 GO
+
+-------------------------------------------------------------Insert Into student_exam Table (with Exam_Correction Stored Procedure & Web App)---------------------------------------------------------------------- 
+
 INSERT [dbo].[student_exam] ([Std_ID], [ex_ID], [st_Grade], [exam_percentage], [St_status]) VALUES (1, 1, N'9', CAST(60.00 AS Decimal(5, 2)), N'Passed')
 GO
 INSERT [dbo].[student_exam] ([Std_ID], [ex_ID], [st_Grade], [exam_percentage], [St_status]) VALUES (1, 20, N'11', CAST(64.71 AS Decimal(5, 2)), N'Passed')
@@ -8850,6 +8905,9 @@ INSERT [dbo].[student_exam] ([Std_ID], [ex_ID], [st_Grade], [exam_percentage], [
 GO
 INSERT [dbo].[student_exam] ([Std_ID], [ex_ID], [st_Grade], [exam_percentage], [St_status]) VALUES (778, 31, N'12', CAST(100.00 AS Decimal(5, 2)), N'Passed')
 GO
+
+-------------------------------------------------------------Insert Into Student_Phone Table---------------------------------------------------------------------- 
+
 INSERT [dbo].[Student_Phone] ([St_ID], [St_Phone]) VALUES (1, N'01012345678')
 GO
 INSERT [dbo].[Student_Phone] ([St_ID], [St_Phone]) VALUES (2, N'01123456789')
@@ -10406,6 +10464,9 @@ INSERT [dbo].[Student_Phone] ([St_ID], [St_Phone]) VALUES (777, N'01278901234')
 GO
 INSERT [dbo].[Student_Phone] ([St_ID], [St_Phone]) VALUES (778, N'01089012345')
 GO
+
+-------------------------------------------------------------Insert Into Topic Table---------------------------------------------------------------------- 
+
 INSERT [dbo].[Topic] ([Topic_ID], [Course_ID], [Topic_Name]) VALUES (1, 10, N'Introduction to Object-Oriented Programming')
 GO
 INSERT [dbo].[Topic] ([Topic_ID], [Course_ID], [Topic_Name]) VALUES (2, 10, N'Classes and Objects')
@@ -10620,6 +10681,9 @@ INSERT [dbo].[Topic] ([Topic_ID], [Course_ID], [Topic_Name]) VALUES (106, 20, N'
 GO
 INSERT [dbo].[Topic] ([Topic_ID], [Course_ID], [Topic_Name]) VALUES (107, 20, N'CCN With Computer Vision')
 GO
+
+-------------------------------------------------------------Insert Into trackcourse Table---------------------------------------------------------------------- 
+
 INSERT [dbo].[trackcourse] ([track_ID], [course_ID]) VALUES (2, 1)
 GO
 INSERT [dbo].[trackcourse] ([track_ID], [course_ID]) VALUES (2, 2)
@@ -10762,6 +10826,9 @@ INSERT [dbo].[trackcourse] ([track_ID], [course_ID]) VALUES (23, 22)
 GO
 INSERT [dbo].[trackcourse] ([track_ID], [course_ID]) VALUES (24, 23)
 GO
+
+-------------------------------------------------------------Insert Into Tracks Table---------------------------------------------------------------------- 
+
 INSERT [dbo].[Tracks] ([track_ID], [Track_name], [ins_ID], [Dept_ID], [duration]) VALUES (1, N'Fullstack.Net', 1, 5, N'9 months')
 GO
 INSERT [dbo].[Tracks] ([track_ID], [Track_name], [ins_ID], [Dept_ID], [duration]) VALUES (2, N'Embedded Systems Design', 1, 1, N'3 months')
