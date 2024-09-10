@@ -44,29 +44,29 @@ begin
 	end catch
 end
 
-Exam_Correction 1,1
+exec Exam_Correction 1,1
 GO
-Exam_Correction 2,1
+exec Exam_Correction 2,1
 GO
-Exam_Correction 5,2
+exec Exam_Correction 5,2
 GO
-Exam_Correction 6,2
+exec Exam_Correction 6,2
 GO
-Exam_Correction 21,3
+exec Exam_Correction 21,3
 GO
-Exam_Correction 33,3
+exec Exam_Correction 33,3
 GO
-Exam_Correction 52,4
+exec Exam_Correction 52,4
 GO
-Exam_Correction 35,4
+exec Exam_Correction 35,4
 GO
-Exam_Correction 13,5
+exec Exam_Correction 13,5
 GO
-Exam_Correction 55,5
+exec Exam_Correction 55,5
 GO
-Exam_Correction 60,6
+exec Exam_Correction 60,6
 GO
-Exam_Correction 15,6
+exec Exam_Correction 15,6
 GO
 
 select * from student_exam

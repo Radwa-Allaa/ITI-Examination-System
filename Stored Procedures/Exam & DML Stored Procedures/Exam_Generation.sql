@@ -61,3 +61,18 @@ begin
 			select ERROR_MESSAGE() as ErrorMessage
 		end catch
 end
+
+exec Exam_Generation 1,1,120,5,5
+GO
+exec Exam_Generation 2,7,60,5,5
+GO
+exec Exam_Generation 3,10,60,5,5
+GO
+exec Exam_Generation 4,13,60,5,5
+GO
+exec Exam_Generation 5,13,60,5,5
+GO
+exec Exam_Generation 6,13,60,5,5
+GO
+
+select * from Exam
